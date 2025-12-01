@@ -85,11 +85,3 @@ This project was built to practice:
 This project is open source and available for educational purposes.
 
 ````
-
-
-
-```bash
-pip freeze > requirements.txt
-````
-
-This creates a text file listing all your installed packages. Now, add, commit, and push both the `README.md` and `requirements.txt` to GitHub\!
