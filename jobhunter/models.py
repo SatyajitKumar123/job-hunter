@@ -12,7 +12,7 @@ class JobApplication(models.Model):
     
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     company = models.CharField(max_length=100)
-    postition = models.CharField(max_length=100)
+    position = models.CharField(max_length=100)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='APPLIED')
     date_applied = models.DateField()
     

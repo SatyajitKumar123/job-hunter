@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="border: 1px solid #f44336; padding: 20px; border-radius: 5px; background-color: #ffebee;">
+    <h2 style="color: #d32f2f;">Delete Application?</h2>
+    
+    <p>Are you sure you want to delete the application for 
+       <b>{{ job.position }}</b> at <b>{{ job.company }}</b>?
+    </p>
+    
+    <p><i>This action cannot be undone.</i></p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit" style="background-color: #d32f2f; color: white; padding: 10px 20px; border: none; cursor: pointer;">
+            Yes, Delete it
+        </button>
+        
+        <a href="{% url 'job_list' %}" style="margin-left: 20px;">No, Cancel</a>
+    </form>
+</div>
+{% endblock %}

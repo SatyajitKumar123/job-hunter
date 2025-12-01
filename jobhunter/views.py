@@ -14,7 +14,7 @@ def job_list(request):
         jobs = jobs.filter(
             Q(company__icontains=query) | Q(position__icontains=query)
         )
-    return render(request, 'job_list.html', {'jobs': jobs})
+    return render(request, 'jobhunter/job_list.html', {'jobs': jobs})
 
 @login_required
 def job_create(request):
@@ -27,7 +27,7 @@ def job_create(request):
             return redirect('job_list')
     else:
         form = JobForm()
-    return render(request, 'job_form.html', {'form': form, 'title': 'Add Job'})
+    return render(request, 'jobhunter/job_form.html', {'form': form, 'title': 'Add Job'})
 
 @login_required
 def job_update(request, pk):
@@ -40,7 +40,7 @@ def job_update(request, pk):
             return redirect('job_list')
     else:
         form = JobForm(instance=job)
-    return render(request, 'job_form.html', {'form': form, 'title': 'Edit Job'})
+    return render(request, 'jobhunter/job_form.html', {'form': form, 'title': 'Edit Job'})
 
 @login_required
 def job_delete(request, pk):
@@ -49,4 +49,4 @@ def job_delete(request, pk):
     if request.method == 'POST':
         job.delete()
         return redirect('job_list')
-    return render(request, 'job_confirm_delete.html', {'job': job})
+    return render(request, 'jobhunter/job_confirm_delete.html', {'job': job})
